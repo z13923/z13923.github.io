@@ -1,2 +1,6 @@
 # z13923.github.io
-I love you
+#include<stdio.h>
+int main(){
+printf("nishiyigedashabi")
+return 0;
+}
