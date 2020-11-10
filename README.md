@@ -1,6 +1,10 @@
-# z13923.github.io
-#include<stdio.h>
-int main(){
-printf("nishiyigedashabi")
-return 0;
-}
+崔宝么么哒
+崔宝放心飞
+妈妈永相随
+崔宝崔宝，妈妈的宝
+么么哒
+爱你呦
+爱心
+mua
+mua
+给你亲亲
