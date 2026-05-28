@@ -1,12 +1,790 @@
-崔宝么么哒 <br>
-崔宝放心飞 <br>
-妈妈永相随<br>
-崔宝崔宝<br>
-妈妈的宝 <br>
-么么哒<br>
-爱你呦<br>
-爱心<br>
-mua<br>
-mua<br>
-给你亲亲<br>
-<a href="https://user.qzone.qq.com/1392344063/infocenter"（按这里领取一个崔部）
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星屑手记 | 个人博客</title>
+  <style>
+    :root {
+      --ink: #2d2741;
+      --muted: #6f6687;
+      --line: rgba(76, 66, 110, 0.18);
+      --paper: rgba(255, 255, 255, 0.82);
+      --paper-strong: rgba(255, 255, 255, 0.94);
+      --rose: #ff7aa7;
+      --sky: #6bc8ff;
+      --mint: #7adfb9;
+      --sun: #ffd166;
+      --shadow: 0 24px 70px rgba(58, 48, 92, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Microsoft YaHei", "PingFang SC", sans-serif;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(255, 122, 167, 0.28), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(107, 200, 255, 0.32), transparent 30%),
+        linear-gradient(135deg, #fff6fb 0%, #edf8ff 48%, #fff9e8 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 85%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 40px rgba(71, 62, 104, 0.1);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .logo {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--rose), var(--sky));
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 122, 167, 0.35);
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 122, 167, 0.13);
+      color: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
+      gap: 28px;
+      align-items: center;
+      padding: 64px 0 44px;
+    }
+
+    .hero-copy {
+      position: relative;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -100px;
+      width: 220px;
+      height: 220px;
+      background: conic-gradient(from 180deg, var(--rose), var(--sky), var(--mint), var(--rose));
+      opacity: 0.2;
+      border-radius: 45% 55% 50% 50%;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 122, 167, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      color: #c04f7c;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper-strong);
+      font-weight: 800;
+    }
+
+    .button.primary {
+      border: 0;
+      background: linear-gradient(135deg, var(--rose), var(--sky));
+      color: white;
+      box-shadow: 0 14px 30px rgba(91, 164, 255, 0.24);
+    }
+
+    .mascot-card {
+      position: relative;
+      min-height: 470px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.56)),
+        radial-gradient(circle at 50% 35%, rgba(255, 122, 167, 0.24), transparent 32%);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .moon {
+      position: absolute;
+      top: 28px;
+      right: 30px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: var(--sun);
+      box-shadow: inset -18px -10px 0 rgba(255, 255, 255, 0.45);
+    }
+
+    .character {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      width: 250px;
+      height: 350px;
+      transform: translateX(-50%);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hair {
+      position: absolute;
+      inset: 26px 34px 110px;
+      border-radius: 48% 48% 42% 42%;
+      background: linear-gradient(160deg, #34406a, #7352a3 58%, #ff92bd);
+      box-shadow: 0 24px 40px rgba(68, 50, 107, 0.25);
+    }
+
+    .ear {
+      position: absolute;
+      top: 16px;
+      width: 78px;
+      height: 90px;
+      background: linear-gradient(135deg, #34406a, #ff92bd);
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+
+    .ear.left {
+      left: 42px;
+      transform: rotate(-17deg);
+    }
+
+    .ear.right {
+      right: 42px;
+      transform: rotate(17deg);
+    }
+
+    .face {
+      position: absolute;
+      top: 86px;
+      left: 45px;
+      width: 160px;
+      height: 148px;
+      border-radius: 46% 46% 50% 50%;
+      background: #ffe6dc;
+      box-shadow: inset 0 -10px 0 rgba(239, 169, 178, 0.22);
+    }
+
+    .eye {
+      position: absolute;
+      top: 53px;
+      width: 26px;
+      height: 34px;
+      border-radius: 50%;
+      background: #2b2850;
+      box-shadow: inset 6px -6px 0 #6752c4;
+    }
+
+    .eye::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .eye.left {
+      left: 38px;
+    }
+
+    .eye.right {
+      right: 38px;
+    }
+
+    .blush {
+      position: absolute;
+      top: 92px;
+      width: 30px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 122, 167, 0.34);
+    }
+
+    .blush.left {
+      left: 24px;
+    }
+
+    .blush.right {
+      right: 24px;
+    }
+
+    .mouth {
+      position: absolute;
+      left: 72px;
+      top: 98px;
+      width: 18px;
+      height: 10px;
+      border-bottom: 3px solid #9c5465;
+      border-radius: 50%;
+    }
+
+    .body {
+      position: absolute;
+      left: 54px;
+      bottom: 20px;
+      width: 142px;
+      height: 140px;
+      border-radius: 42px 42px 30px 30px;
+      background: linear-gradient(135deg, #fff, #e8f6ff);
+      border: 5px solid #ff9cc1;
+    }
+
+    .ribbon {
+      position: absolute;
+      left: 88px;
+      top: 224px;
+      width: 74px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--rose);
+      transform: rotate(-4deg);
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      width: 28px;
+      height: 22px;
+      background: #ff5f98;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    .ribbon::before {
+      left: -22px;
+      transform: rotate(180deg);
+    }
+
+    .ribbon::after {
+      right: -22px;
+    }
+
+    .spark {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      transform: rotate(45deg);
+      animation: twinkle 2.6s ease-in-out infinite;
+    }
+
+    .spark.one {
+      left: 34px;
+      top: 118px;
+    }
+
+    .spark.two {
+      right: 62px;
+      top: 188px;
+      animation-delay: 0.7s;
+    }
+
+    .spark.three {
+      left: 74px;
+      bottom: 92px;
+      animation-delay: 1.2s;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 24px;
+      padding-bottom: 64px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .post-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .post {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: 0 14px 38px rgba(61, 51, 90, 0.09);
+    }
+
+    .thumb {
+      min-height: 120px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent),
+        var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thumb::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 50% 45% 50% 45%;
+    }
+
+    .post h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .post p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .sidebar {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--paper);
+      box-shadow: 0 14px 38px rgba(61, 51, 90, 0.09);
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .avatar {
+      display: grid;
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 12px;
+      place-items: center;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--sky), var(--rose));
+      color: white;
+      font-size: 42px;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(107, 200, 255, 0.24);
+    }
+
+    .profile h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .profile p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .time-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .time-item strong {
+      color: var(--ink);
+    }
+
+    footer {
+      padding: 26px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-12px);
+      }
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.35;
+        transform: rotate(45deg) scale(0.8);
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(45deg) scale(1.25);
+      }
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .mascot-card {
+        min-height: 410px;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-copy {
+        padding: 24px;
+        border-radius: 26px;
+      }
+
+      .post {
+        grid-template-columns: 1fr;
+      }
+
+      .thumb {
+        min-height: 150px;
+      }
+
+      .character {
+        transform: translateX(-50%) scale(0.88);
+        transform-origin: bottom center;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateX(-50%) scale(0.88) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) scale(0.88) translateY(-10px);
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#">
+      <span class="logo">星</span>
+      <span>星屑手记</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#posts">文章</a>
+      <a href="#notes">日程</a>
+      <a href="#about">关于</a>
+      <a href="#tags">标签</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero" id="about">
+      <div class="hero-copy">
+        <div class="eyebrow">今日状态：代码、咖啡和星光在线</div>
+        <h1>把日常灵感写成闪闪发光的博客。</h1>
+        <p>
+          这里记录技术学习、作品复盘、生活碎片和一点点二次元妄想。
+          页面像一本打开的手账，文章像夜空里逐渐点亮的星屑。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#posts">开始阅读</a>
+          <a class="button" href="#tags">浏览标签</a>
+        </div>
+      </div>
+
+      <div class="mascot-card" aria-label="二次元风格角色插画">
+        <div class="moon"></div>
+        <div class="spark one"></div>
+        <div class="spark two"></div>
+        <div class="spark three"></div>
+        <div class="character">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+          <div class="hair"></div>
+          <div class="face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="blush left"></div>
+            <div class="blush right"></div>
+            <div class="mouth"></div>
+          </div>
+          <div class="body"></div>
+          <div class="ribbon"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div id="posts">
+        <div class="section-title">
+          <h2>最新文章</h2>
+          <span>Latest Notes</span>
+        </div>
+
+        <div class="post-grid">
+          <article class="post">
+            <div class="thumb" style="--accent: linear-gradient(135deg, #ff9cc1, #ffd166);"></div>
+            <div>
+              <h3>一次把博客首页做得更有角色感</h3>
+              <p>从色彩、排版、动效和插画四个角度，拆解如何让个人站点更像自己的精神房间。</p>
+              <div class="meta">
+                <span class="tag">设计</span>
+                <span>2026.05.28</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="thumb" style="--accent: linear-gradient(135deg, #6bc8ff, #7adfb9);"></div>
+            <div>
+              <h3>Android 学习路线的手账式复盘</h3>
+              <p>把 MVVM、Flow、Room、Compose 的学习过程拆成可执行的小任务，减少焦虑感。</p>
+              <div class="meta">
+                <span class="tag">Android</span>
+                <span>2026.05.22</span>
+                <span>8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="post">
+            <div class="thumb" style="--accent: linear-gradient(135deg, #b7a6ff, #ff9cc1);"></div>
+            <div>
+              <h3>夜晚写代码时适合听什么</h3>
+              <p>一点 Lo-Fi、一点游戏原声、一点雨声，给深夜学习搭一个不打扰人的背景。</p>
+              <div class="meta">
+                <span class="tag">生活</span>
+                <span>2026.05.16</span>
+                <span>3 min read</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="panel profile">
+          <div class="avatar">A</div>
+          <h3>Akari</h3>
+          <p>客户端开发学习中。喜欢把技术笔记写得像冒险地图。</p>
+          <div class="chips" id="tags">
+            <span class="chip">Kotlin</span>
+            <span class="chip">Compose</span>
+            <span class="chip">手账</span>
+            <span class="chip">动画</span>
+            <span class="chip">日常</span>
+          </div>
+        </section>
+
+        <section class="panel" id="notes">
+          <div class="section-title">
+            <h2>日程</h2>
+          </div>
+          <div class="timeline">
+            <div class="time-item">
+              <strong>09:00</strong>
+              <span>整理今日技术笔记</span>
+            </div>
+            <div class="time-item">
+              <strong>14:30</strong>
+              <span>完成一篇项目复盘</span>
+            </div>
+            <div class="time-item">
+              <strong>21:00</strong>
+              <span>更新博客视觉小组件</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="section-title">
+            <h2>收藏夹</h2>
+          </div>
+          <div class="chips">
+            <span class="chip">UI 灵感</span>
+            <span class="chip">阅读清单</span>
+            <span class="chip">项目复盘</span>
+            <span class="chip">碎碎念</span>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="shell">
+    星屑手记 · 个人博客界面 · Made with HTML & CSS
+  </footer>
+</body>
+</html>
