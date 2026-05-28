@@ -3,155 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>星屑手记 | 个人博客</title>
+  <title>星屿手记 | 二次元个人博客</title>
   <style>
     :root {
-      --ink: #2d2741;
-      --muted: #6f6687;
-      --line: rgba(76, 66, 110, 0.18);
-      --paper: rgba(255, 255, 255, 0.82);
-      --paper-strong: rgba(255, 255, 255, 0.94);
-      --rose: #ff7aa7;
-      --sky: #6bc8ff;
-      --mint: #7adfb9;
-      --sun: #ffd166;
-      --shadow: 0 24px 70px rgba(58, 48, 92, 0.18);
+      --bg: #fff7fb;
+      --bg-2: #edf7ff;
+      --bg-3: #fff8e8;
+      --ink: #2b2340;
+      --muted: #736a88;
+      --line: rgba(88, 72, 123, 0.16);
+      --card: rgba(255, 255, 255, 0.82);
+      --card-strong: rgba(255, 255, 255, 0.94);
+      --rose: #ff76a8;
+      --sky: #70c8ff;
+      --mint: #73e0bf;
+      --sun: #ffd76c;
+      --shadow: 0 24px 60px rgba(65, 53, 96, 0.16);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       min-height: 100vh;
       color: var(--ink);
-      font-family: "Trebuchet MS", "Microsoft YaHei", "PingFang SC", sans-serif;
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
       background:
-        radial-gradient(circle at 12% 14%, rgba(255, 122, 167, 0.28), transparent 28%),
-        radial-gradient(circle at 82% 18%, rgba(107, 200, 255, 0.32), transparent 30%),
-        linear-gradient(135deg, #fff6fb 0%, #edf8ff 48%, #fff9e8 100%);
+        radial-gradient(circle at 15% 15%, rgba(255, 118, 168, 0.22), transparent 24%),
+        radial-gradient(circle at 85% 20%, rgba(112, 200, 255, 0.28), transparent 26%),
+        radial-gradient(circle at 75% 82%, rgba(115, 224, 191, 0.16), transparent 28%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 48%, var(--bg-3) 100%);
       overflow-x: hidden;
     }
-
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 85%);
+        linear-gradient(rgba(255, 255, 255, 0.52) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.52) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 86%);
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    button, input, textarea, select { font: inherit; }
     .shell {
-      width: min(1180px, calc(100% - 36px));
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
     }
-
     .topbar {
       position: sticky;
       top: 14px;
-      z-index: 10;
+      z-index: 20;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 18px;
       margin-top: 14px;
-      padding: 12px 16px;
+      padding: 14px 18px;
       border: 1px solid var(--line);
       border-radius: 22px;
       background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(18px);
-      box-shadow: 0 14px 40px rgba(71, 62, 104, 0.1);
+      box-shadow: 0 14px 40px rgba(69, 59, 98, 0.1);
     }
-
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-weight: 900;
-      letter-spacing: 0;
+      letter-spacing: 0.04em;
     }
-
-    .logo {
+    .brand-mark {
       display: grid;
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       place-items: center;
-      border-radius: 13px;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--rose), var(--sky));
       color: #fff;
-      box-shadow: 0 8px 20px rgba(255, 122, 167, 0.35);
+      font-size: 18px;
+      box-shadow: 0 10px 22px rgba(255, 118, 168, 0.34);
     }
-
     .nav {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
       color: var(--muted);
       font-size: 14px;
     }
-
     .nav a {
       padding: 8px 12px;
       border-radius: 999px;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
     }
-
     .nav a:hover {
-      background: rgba(255, 122, 167, 0.13);
+      background: rgba(255, 118, 168, 0.14);
       color: var(--ink);
+      transform: translateY(-1px);
     }
-
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.94fr);
       gap: 28px;
-      align-items: center;
-      padding: 64px 0 44px;
+      align-items: start;
+      padding: 58px 0 28px;
     }
-
     .hero-copy {
       position: relative;
-      padding: 34px;
+      padding: 36px;
       border: 1px solid var(--line);
-      border-radius: 32px;
-      background: var(--paper);
+      border-radius: 34px;
+      background: var(--card);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-
+    .hero-copy::before,
     .hero-copy::after {
       content: "";
       position: absolute;
-      right: -80px;
-      bottom: -100px;
-      width: 220px;
-      height: 220px;
-      background: conic-gradient(from 180deg, var(--rose), var(--sky), var(--mint), var(--rose));
-      opacity: 0.2;
-      border-radius: 45% 55% 50% 50%;
+      border-radius: 50%;
+      pointer-events: none;
     }
-
+    .hero-copy::before {
+      inset: auto -90px -110px auto;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(112, 200, 255, 0.2), transparent 68%);
+    }
+    .hero-copy::after {
+      inset: 18px 18px auto auto;
+      width: 96px;
+      height: 96px;
+      background: radial-gradient(circle, rgba(255, 215, 108, 0.92), rgba(255, 215, 108, 0.14) 70%, transparent 71%);
+    }
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 18px;
-      padding: 7px 12px;
-      border: 1px solid rgba(255, 122, 167, 0.35);
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 118, 168, 0.32);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.68);
+      background: rgba(255, 255, 255, 0.72);
       color: #c04f7c;
       font-size: 13px;
       font-weight: 800;
     }
-
     h1 {
       position: relative;
       z-index: 1;
@@ -159,309 +159,304 @@
       max-width: 720px;
       font-size: clamp(42px, 7vw, 84px);
       line-height: 0.98;
-      letter-spacing: 0;
+      letter-spacing: -0.03em;
     }
-
     .hero-copy p {
       position: relative;
       z-index: 1;
       max-width: 650px;
-      margin: 20px 0 0;
+      margin: 18px 0 0;
       color: var(--muted);
       font-size: 17px;
+      line-height: 1.8;
     }
-
     .hero-actions {
       position: relative;
       z-index: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 26px;
+      margin-top: 24px;
     }
-
     .button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      min-height: 44px;
-      padding: 0 16px;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: var(--paper-strong);
+      background: var(--card-strong);
       font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
-
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(80, 67, 114, 0.12);
+    }
     .button.primary {
       border: 0;
       background: linear-gradient(135deg, var(--rose), var(--sky));
       color: white;
-      box-shadow: 0 14px 30px rgba(91, 164, 255, 0.24);
+      box-shadow: 0 16px 30px rgba(110, 160, 255, 0.24);
     }
-
-    .mascot-card {
+    .hero-stats {
       position: relative;
-      min-height: 470px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .stat {
+      padding: 14px;
       border: 1px solid var(--line);
-      border-radius: 34px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.56)),
-        radial-gradient(circle at 50% 35%, rgba(255, 122, 167, 0.24), transparent 32%);
-      box-shadow: var(--shadow);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .hero-visual {
+      display: grid;
+      gap: 16px;
+    }
+    .feature-frame,
+    .stack-frame,
+    .panel,
+    .character-card,
+    .post,
+    .publish-card {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--card);
+      box-shadow: 0 14px 34px rgba(72, 59, 104, 0.09);
+    }
+    .feature-frame {
+      position: relative;
       overflow: hidden;
+      min-height: 500px;
+      padding: 14px;
     }
-
-    .moon {
+    .feature-label {
       position: absolute;
-      top: 28px;
-      right: 30px;
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      background: var(--sun);
-      box-shadow: inset -18px -10px 0 rgba(255, 255, 255, 0.45);
+      left: 18px;
+      top: 18px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      font-size: 13px;
+      font-weight: 800;
     }
-
-    .character {
-      position: absolute;
-      left: 50%;
-      bottom: 28px;
-      width: 250px;
-      height: 350px;
-      transform: translateX(-50%);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .hair {
-      position: absolute;
-      inset: 26px 34px 110px;
-      border-radius: 48% 48% 42% 42%;
-      background: linear-gradient(160deg, #34406a, #7352a3 58%, #ff92bd);
-      box-shadow: 0 24px 40px rgba(68, 50, 107, 0.25);
-    }
-
-    .ear {
-      position: absolute;
-      top: 16px;
-      width: 78px;
-      height: 90px;
-      background: linear-gradient(135deg, #34406a, #ff92bd);
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    }
-
-    .ear.left {
-      left: 42px;
-      transform: rotate(-17deg);
-    }
-
-    .ear.right {
-      right: 42px;
-      transform: rotate(17deg);
-    }
-
-    .face {
-      position: absolute;
-      top: 86px;
-      left: 45px;
-      width: 160px;
-      height: 148px;
-      border-radius: 46% 46% 50% 50%;
-      background: #ffe6dc;
-      box-shadow: inset 0 -10px 0 rgba(239, 169, 178, 0.22);
-    }
-
-    .eye {
-      position: absolute;
-      top: 53px;
-      width: 26px;
-      height: 34px;
-      border-radius: 50%;
-      background: #2b2850;
-      box-shadow: inset 6px -6px 0 #6752c4;
-    }
-
-    .eye::before {
+    .feature-label::before {
       content: "";
-      position: absolute;
-      top: 6px;
-      left: 7px;
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #fff;
-    }
-
-    .eye.left {
-      left: 38px;
-    }
-
-    .eye.right {
-      right: 38px;
-    }
-
-    .blush {
-      position: absolute;
-      top: 92px;
-      width: 30px;
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(255, 122, 167, 0.34);
-    }
-
-    .blush.left {
-      left: 24px;
-    }
-
-    .blush.right {
-      right: 24px;
-    }
-
-    .mouth {
-      position: absolute;
-      left: 72px;
-      top: 98px;
-      width: 18px;
-      height: 10px;
-      border-bottom: 3px solid #9c5465;
-      border-radius: 50%;
-    }
-
-    .body {
-      position: absolute;
-      left: 54px;
-      bottom: 20px;
-      width: 142px;
-      height: 140px;
-      border-radius: 42px 42px 30px 30px;
-      background: linear-gradient(135deg, #fff, #e8f6ff);
-      border: 5px solid #ff9cc1;
-    }
-
-    .ribbon {
-      position: absolute;
-      left: 88px;
-      top: 224px;
-      width: 74px;
-      height: 32px;
-      border-radius: 999px;
       background: var(--rose);
-      transform: rotate(-4deg);
+      box-shadow: 14px 0 0 var(--sky), 28px 0 0 var(--mint);
     }
-
-    .ribbon::before,
-    .ribbon::after {
-      content: "";
-      position: absolute;
-      top: 6px;
-      width: 28px;
-      height: 22px;
-      background: #ff5f98;
-      clip-path: polygon(0 0, 100% 50%, 0 100%);
-    }
-
-    .ribbon::before {
-      left: -22px;
-      transform: rotate(180deg);
-    }
-
-    .ribbon::after {
-      right: -22px;
-    }
-
-    .spark {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: #fff;
-      transform: rotate(45deg);
-      animation: twinkle 2.6s ease-in-out infinite;
-    }
-
-    .spark.one {
-      left: 34px;
-      top: 118px;
-    }
-
-    .spark.two {
-      right: 62px;
-      top: 188px;
-      animation-delay: 0.7s;
-    }
-
-    .spark.three {
-      left: 74px;
-      bottom: 92px;
-      animation-delay: 1.2s;
-    }
-
-    .layout {
+    .image-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
-      gap: 24px;
-      padding-bottom: 64px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 12px;
+      height: 100%;
     }
-
-    .section-title {
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      min-height: 100%;
+      background: #f7f7fb;
+    }
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease;
+    }
+    .image-card:hover img {
+      transform: scale(1.03);
+    }
+    .image-card.big {
+      grid-row: span 2;
+    }
+    .image-card .overlay {
+      position: absolute;
+      inset: auto 14px 14px 14px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(20, 16, 32, 0), rgba(20, 16, 32, 0.7));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+    .stack-frame {
+      display: grid;
+      gap: 12px;
+      padding: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .mini-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      aspect-ratio: 4 / 3;
+      background: #f7f7fb;
+    }
+    .mini-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease;
+    }
+    .mini-image:hover img {
+      transform: scale(1.04);
+    }
+    .mini-image .badge {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .section {
+      padding: 18px 0 64px;
+    }
+    .section-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
-      margin-bottom: 16px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
-
-    .section-title h2 {
+    .section-head h2 {
       margin: 0;
       font-size: 28px;
+      letter-spacing: -0.02em;
     }
-
-    .section-title span {
+    .section-head span {
       color: var(--muted);
       font-size: 14px;
     }
-
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .character-card {
+      overflow: hidden;
+      transition: transform 170ms ease, box-shadow 170ms ease;
+    }
+    .character-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 44px rgba(72, 59, 104, 0.14);
+    }
+    .character-card .image {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+    .character-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease;
+    }
+    .character-card:hover img {
+      transform: scale(1.03);
+    }
+    .character-card figcaption {
+      padding: 14px 16px 16px;
+    }
+    .character-card h3 {
+      margin: 0 0 6px;
+      font-size: 19px;
+    }
+    .character-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 24px;
+      align-items: start;
+      padding-bottom: 68px;
+    }
     .post-grid {
       display: grid;
       gap: 16px;
     }
-
     .post {
       display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
+      grid-template-columns: 140px minmax(0, 1fr);
       gap: 18px;
       padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--paper);
-      box-shadow: 0 14px 38px rgba(61, 51, 90, 0.09);
-    }
-
-    .thumb {
-      min-height: 120px;
-      border-radius: 20px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent),
-        var(--accent);
-      position: relative;
       overflow: hidden;
     }
-
+    .thumb {
+      position: relative;
+      min-height: 140px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .thumb::before {
       content: "";
       position: absolute;
       inset: 18px;
-      border: 2px solid rgba(255, 255, 255, 0.7);
-      border-radius: 50% 45% 50% 45%;
+      border: 2px solid rgba(255, 255, 255, 0.72);
+      border-radius: 24px 40px 28px 38px;
+      pointer-events: none;
     }
-
     .post h3 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       font-size: 22px;
     }
-
     .post p {
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       color: var(--muted);
+      line-height: 1.75;
     }
-
     .meta {
       display: flex;
       flex-wrap: wrap;
@@ -469,322 +464,679 @@
       font-size: 13px;
       color: var(--muted);
     }
-
-    .tag {
-      padding: 5px 9px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.64);
-      border: 1px solid var(--line);
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .sidebar {
-      display: grid;
-      align-content: start;
-      gap: 18px;
-    }
-
     .panel {
       padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background: var(--paper);
-      box-shadow: 0 14px 38px rgba(61, 51, 90, 0.09);
     }
-
+    .publish-card {
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .publish-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    .field label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(88, 72, 123, 0.18);
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(112, 200, 255, 0.9);
+      box-shadow: 0 0 0 4px rgba(112, 200, 255, 0.14);
+    }
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .helper {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
     .profile {
       text-align: center;
     }
-
     .avatar {
       display: grid;
-      width: 90px;
-      height: 90px;
+      width: 92px;
+      height: 92px;
       margin: 0 auto 12px;
       place-items: center;
-      border-radius: 28px;
+      border-radius: 30px;
       background: linear-gradient(135deg, var(--sky), var(--rose));
-      color: white;
-      font-size: 42px;
+      color: #fff;
+      font-size: 40px;
       font-weight: 900;
-      box-shadow: 0 14px 28px rgba(107, 200, 255, 0.24);
+      box-shadow: 0 14px 28px rgba(112, 200, 255, 0.24);
     }
-
     .profile h3 {
       margin: 0 0 6px;
       font-size: 22px;
     }
-
     .profile p {
       margin: 0;
       color: var(--muted);
+      line-height: 1.7;
     }
-
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 14px;
+      justify-content: center;
     }
-
     .chip {
-      padding: 7px 10px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 10px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.74);
       border: 1px solid var(--line);
       font-size: 13px;
       font-weight: 800;
     }
-
     .timeline {
       display: grid;
       gap: 12px;
     }
-
     .time-item {
       display: grid;
       grid-template-columns: 64px 1fr;
       gap: 12px;
       color: var(--muted);
       font-size: 14px;
+      line-height: 1.6;
     }
-
-    .time-item strong {
-      color: var(--ink);
+    .time-item strong { color: var(--ink); }
+    .credits {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
     }
-
+    .post-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .mini-btn {
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .notice {
+      margin: 0 0 14px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(112, 200, 255, 0.2);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
     footer {
-      padding: 26px 0 44px;
+      padding: 16px 0 42px;
       color: var(--muted);
       text-align: center;
       font-size: 14px;
     }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(-12px);
-      }
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0.35;
-        transform: rotate(45deg) scale(0.8);
-      }
-      50% {
-        opacity: 1;
-        transform: rotate(45deg) scale(1.25);
-      }
-    }
-
-    @media (max-width: 880px) {
+    @media (max-width: 980px) {
       .hero,
-      .layout {
+      .content-grid {
         grid-template-columns: 1fr;
       }
-
-      .mascot-card {
-        min-height: 410px;
+      .feature-frame {
+        min-height: auto;
       }
-
-      .nav {
-        display: none;
+      .image-grid {
+        min-height: 560px;
+      }
+      .stack-frame {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
-
-    @media (max-width: 620px) {
-      .shell {
-        width: min(100% - 22px, 1180px);
-      }
-
-      .hero {
-        padding-top: 34px;
-      }
-
-      .hero-copy {
-        padding: 24px;
-        border-radius: 26px;
-      }
-
-      .post {
-        grid-template-columns: 1fr;
-      }
-
-      .thumb {
-        min-height: 150px;
-      }
-
-      .character {
-        transform: translateX(-50%) scale(0.88);
-        transform-origin: bottom center;
-      }
-
-      @keyframes float {
-        0%, 100% {
-          transform: translateX(-50%) scale(0.88) translateY(0);
-        }
-        50% {
-          transform: translateX(-50%) scale(0.88) translateY(-10px);
-        }
-      }
+    @media (max-width: 720px) {
+      .shell { width: min(100% - 20px, 1200px); }
+      .topbar { padding: 12px 14px; border-radius: 18px; }
+      .nav { display: none; }
+      .hero { padding-top: 34px; }
+      .hero-copy { padding: 24px; border-radius: 26px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .image-grid { grid-template-columns: 1fr; }
+      .image-card.big { grid-row: auto; min-height: 320px; }
+      .stack-frame { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .post { grid-template-columns: 1fr; }
+      .thumb { min-height: 180px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <header class="shell topbar">
     <a class="brand" href="#">
-      <span class="logo">星</span>
-      <span>星屑手记</span>
+      <span class="brand-mark">星</span>
+      <span>星屿手记</span>
     </a>
     <nav class="nav" aria-label="主导航">
-      <a href="#posts">文章</a>
+      <a href="#publish">发布文章</a>
+      <a href="#gallery">角色墙</a>
+      <a href="#posts">博客文章</a>
       <a href="#notes">日程</a>
-      <a href="#about">关于</a>
-      <a href="#tags">标签</a>
     </nav>
   </header>
 
   <main class="shell">
     <section class="hero" id="about">
       <div class="hero-copy">
-        <div class="eyebrow">今日状态：代码、咖啡和星光在线</div>
-        <h1>把日常灵感写成闪闪发光的博客。</h1>
+        <div class="eyebrow">今日状态：代码 · 动画 · 二次元氛围全开</div>
+        <h1>把日常写成会发光的二次元博客。</h1>
         <p>
-          这里记录技术学习、作品复盘、生活碎片和一点点二次元妄想。
-          页面像一本打开的手账，文章像夜空里逐渐点亮的星屑。
+          这个页面现在支持“发布文章”功能。你在页面里输入标题、摘要和正文，点发布后，文章会立刻插入博客列表，
+          并自动保存到当前浏览器，刷新后也还在。
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#posts">开始阅读</a>
-          <a class="button" href="#tags">浏览标签</a>
+          <a class="button primary" href="#publish">现在去发布</a>
+          <a class="button" href="#gallery">先看角色墙</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong id="postCount">0</strong>
+            <span>篇已发布文章，会实时显示在下面的列表里。</span>
+          </div>
+          <div class="stat">
+            <strong>本地</strong>
+            <span>内容保存在浏览器 `localStorage`，无需后端也能用。</span>
+          </div>
+          <div class="stat">
+            <strong>即时</strong>
+            <span>提交后立即渲染到页面，像真正发布一样。</span>
+          </div>
         </div>
       </div>
 
-      <div class="mascot-card" aria-label="二次元风格角色插画">
-        <div class="moon"></div>
-        <div class="spark one"></div>
-        <div class="spark two"></div>
-        <div class="spark three"></div>
-        <div class="character">
-          <div class="ear left"></div>
-          <div class="ear right"></div>
-          <div class="hair"></div>
-          <div class="face">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-            <div class="blush left"></div>
-            <div class="blush right"></div>
-            <div class="mouth"></div>
+      <div class="hero-visual">
+        <div class="feature-frame">
+          <div class="feature-label">本地下载图集 · Anime Gallery</div>
+          <div class="image-grid">
+            <a class="image-card big" href="#gallery" aria-label="动漫女角色图 1">
+              <img src="assets/anime-girl-portrait.jpg" alt="动漫女角色图 1" />
+              <div class="overlay">星奈 · 甜系双马尾</div>
+            </a>
+            <a class="image-card" href="#gallery" aria-label="动漫女角色图 2">
+              <img src="assets/gray-cyan-hair-anime-girl.png" alt="动漫女角色图 2" />
+              <div class="overlay">露璃 · 蓝调学园</div>
+            </a>
+            <a class="image-card" href="#gallery" aria-label="动漫女角色图 3">
+              <img src="assets/aesthetic-anime-girl.jpg" alt="动漫女角色图 3" />
+              <div class="overlay">雾遥 · 朦胧银发</div>
+            </a>
+            <a class="image-card" href="#gallery" aria-label="动漫女角色图 4">
+              <img src="assets/watia-girl.png" alt="动漫女角色图 4" />
+              <div class="overlay">澄音 · 海风系</div>
+            </a>
           </div>
-          <div class="body"></div>
-          <div class="ribbon"></div>
+        </div>
+        <div class="stack-frame" aria-label="精选角色缩略图">
+          <div class="mini-image">
+            <img src="assets/anime-girl.png" alt="动漫女角色缩略图 5" />
+            <div class="badge">精选 05</div>
+          </div>
+          <div class="mini-image">
+            <img src="assets/anime-girl-portrait.jpg" alt="动漫女角色缩略图 6" />
+            <div class="badge">精选 06</div>
+          </div>
+          <div class="mini-image">
+            <img src="assets/gray-cyan-hair-anime-girl.png" alt="动漫女角色缩略图 7" />
+            <div class="badge">精选 07</div>
+          </div>
+          <div class="mini-image">
+            <img src="assets/aesthetic-anime-girl.jpg" alt="动漫女角色缩略图 8" />
+            <div class="badge">精选 08</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="layout">
+    <section class="section" id="publish">
+      <div class="section-head">
+        <div>
+          <h2>发布文章</h2>
+          <span>你写完直接点发布，马上出现在博客界面。</span>
+        </div>
+        <span>Publishing Panel</span>
+      </div>
+      <div class="publish-card">
+        <p class="notice">
+          说明：这是静态站点的前端发布功能，内容会保存到当前浏览器。
+          如果你想让所有人都看到同一份新文章，需要再接后端或 GitHub API，我也可以继续帮你接。
+        </p>
+        <form id="publishForm" class="publish-grid">
+          <div class="form-row">
+            <div class="field">
+              <label for="title">文章标题</label>
+              <input id="title" name="title" type="text" maxlength="80" placeholder="例如：今天我给博客加了发布功能" required />
+            </div>
+            <div class="field">
+              <label for="category">分类</label>
+              <select id="category" name="category">
+                <option value="技术">技术</option>
+                <option value="设计">设计</option>
+                <option value="生活">生活</option>
+                <option value="随笔">随笔</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="summary">摘要</label>
+              <input id="summary" name="summary" type="text" maxlength="160" placeholder="一句话介绍这篇文章" required />
+            </div>
+            <div class="field">
+              <label for="cover">封面图片</label>
+              <select id="cover" name="cover">
+                <option value="assets/anime-girl-portrait.jpg">星奈 · 甜系双马尾</option>
+                <option value="assets/gray-cyan-hair-anime-girl.png">露璃 · 蓝调学园</option>
+                <option value="assets/aesthetic-anime-girl.jpg">雾遥 · 朦胧银发</option>
+                <option value="assets/watia-girl.png">澄音 · 海风系</option>
+                <option value="assets/anime-girl.png">夜澜 · 紫雾幻想</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="content">正文</label>
+            <textarea id="content" name="content" placeholder="在这里写文章正文，支持多行。提交后会自动发布到列表。" required></textarea>
+          </div>
+          <div class="field">
+            <label for="tags">标签</label>
+            <input id="tags" name="tags" type="text" placeholder="用逗号分隔，例如：发布,博客,二次元" />
+          </div>
+          <div class="form-actions">
+            <button class="button primary" type="submit">发布到博客</button>
+            <button class="button secondary" type="button" id="seedBtn">恢复示例文章</button>
+            <button class="button secondary" type="button" id="clearBtn">清空我的文章</button>
+          </div>
+          <div class="helper">
+            说明：如果你在别的电脑/手机上打开这个页面，看不到你本地写的文章，这是浏览器本地存储的限制，不是页面问题。
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <div>
+          <h2>二次元角色墙</h2>
+          <span>下方 8 张卡片引用了本地下载的图片，页面不会再依赖外链图床。</span>
+        </div>
+        <span>Anime Girl Gallery</span>
+      </div>
+      <div class="gallery">
+        <figure class="character-card">
+          <div class="image"><img src="assets/anime-girl-portrait.jpg" alt="星奈 · 甜系双马尾" /></div>
+          <figcaption><h3>星奈 · 甜系双马尾</h3><p>粉色调更适合放在首页最先看到的位置，氛围轻快又很二次元。</p><div class="tag-row"><span class="tag">元气</span><span class="tag">双马尾</span><span class="tag">高饱和</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/gray-cyan-hair-anime-girl.png" alt="露璃 · 蓝调学园" /></div>
+          <figcaption><h3>露璃 · 蓝调学园</h3><p>清爽的蓝青色系，适合和技术博客、日记内容搭配。</p><div class="tag-row"><span class="tag">校园</span><span class="tag">清爽</span><span class="tag">蓝白系</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/aesthetic-anime-girl.jpg" alt="雾遥 · 朦胧银发" /></div>
+          <figcaption><h3>雾遥 · 朦胧银发</h3><p>银发和浅色背景更有幻想感，适合做收藏墙里的视觉节奏变化。</p><div class="tag-row"><span class="tag">幻想</span><span class="tag">银发</span><span class="tag">柔和</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/watia-girl.png" alt="澄音 · 海风系" /></div>
+          <figcaption><h3>澄音 · 海风系</h3><p>蓝绿色系更清透，视觉不容易疲劳，放在页面收尾很舒服。</p><div class="tag-row"><span class="tag">海风</span><span class="tag">清透</span><span class="tag">低饱和</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/anime-girl.png" alt="夜澜 · 紫雾幻想" /></div>
+          <figcaption><h3>夜澜 · 紫雾幻想</h3><p>这张是偏梦幻感的角色图，适合补在角色墙中间做过渡。</p><div class="tag-row"><span class="tag">梦幻</span><span class="tag">紫调</span><span class="tag">夜色</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/anime-girl-portrait.jpg" alt="柚夏 · 暖色补图" /></div>
+          <figcaption><h3>柚夏 · 暖色补图</h3><p>用不同裁切再放一次，做成更密一点的图集节奏，不会太空。</p><div class="tag-row"><span class="tag">暖色</span><span class="tag">补图</span><span class="tag">节奏感</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/gray-cyan-hair-anime-girl.png" alt="青岚 · 清新补图" /></div>
+          <figcaption><h3>青岚 · 清新补图</h3><p>再放一张蓝青系做收束，颜色更统一，视觉层次也更稳。</p><div class="tag-row"><span class="tag">清新</span><span class="tag">补图</span><span class="tag">统一感</span></div></figcaption>
+        </figure>
+        <figure class="character-card">
+          <div class="image"><img src="assets/aesthetic-anime-girl.jpg" alt="绯樱 · 红粉补图" /></div>
+          <figcaption><h3>绯樱 · 红粉补图</h3><p>最后再用一张偏柔光的图收尾，让整个角色墙看上去更完整。</p><div class="tag-row"><span class="tag">柔光</span><span class="tag">补图</span><span class="tag">收尾</span></div></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="content-grid">
       <div id="posts">
-        <div class="section-title">
-          <h2>最新文章</h2>
+        <div class="section-head">
+          <div>
+            <h2>博客文章</h2>
+            <span>这里会自动显示你刚刚发布的内容，最新发布的文章排在最前面。</span>
+          </div>
           <span>Latest Notes</span>
         </div>
-
-        <div class="post-grid">
-          <article class="post">
-            <div class="thumb" style="--accent: linear-gradient(135deg, #ff9cc1, #ffd166);"></div>
-            <div>
-              <h3>一次把博客首页做得更有角色感</h3>
-              <p>从色彩、排版、动效和插画四个角度，拆解如何让个人站点更像自己的精神房间。</p>
-              <div class="meta">
-                <span class="tag">设计</span>
-                <span>2026.05.28</span>
-                <span>5 min read</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="post">
-            <div class="thumb" style="--accent: linear-gradient(135deg, #6bc8ff, #7adfb9);"></div>
-            <div>
-              <h3>Android 学习路线的手账式复盘</h3>
-              <p>把 MVVM、Flow、Room、Compose 的学习过程拆成可执行的小任务，减少焦虑感。</p>
-              <div class="meta">
-                <span class="tag">Android</span>
-                <span>2026.05.22</span>
-                <span>8 min read</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="post">
-            <div class="thumb" style="--accent: linear-gradient(135deg, #b7a6ff, #ff9cc1);"></div>
-            <div>
-              <h3>夜晚写代码时适合听什么</h3>
-              <p>一点 Lo-Fi、一点游戏原声、一点雨声，给深夜学习搭一个不打扰人的背景。</p>
-              <div class="meta">
-                <span class="tag">生活</span>
-                <span>2026.05.16</span>
-                <span>3 min read</span>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div class="post-grid" id="postList"></div>
       </div>
 
       <aside class="sidebar">
         <section class="panel profile">
           <div class="avatar">A</div>
           <h3>Akari</h3>
-          <p>客户端开发学习中。喜欢把技术笔记写得像冒险地图。</p>
-          <div class="chips" id="tags">
+          <p>客户端开发学习中，喜欢把技术笔记写得像一页有情绪的手账。</p>
+          <div class="chips" id="notes">
             <span class="chip">Kotlin</span>
             <span class="chip">Compose</span>
-            <span class="chip">手账</span>
+            <span class="chip">手账感</span>
             <span class="chip">动画</span>
             <span class="chip">日常</span>
           </div>
+          <div class="credits">
+            图片来源：Wikimedia Commons，已下载到本地 `assets/` 目录。
+          </div>
         </section>
-
-        <section class="panel" id="notes">
-          <div class="section-title">
-            <h2>日程</h2>
+        <section class="panel">
+          <div class="section-head">
+            <div><h2 style="font-size: 22px;">日程</h2></div>
           </div>
           <div class="timeline">
-            <div class="time-item">
-              <strong>09:00</strong>
-              <span>整理今日技术笔记</span>
-            </div>
-            <div class="time-item">
-              <strong>14:30</strong>
-              <span>完成一篇项目复盘</span>
-            </div>
-            <div class="time-item">
-              <strong>21:00</strong>
-              <span>更新博客视觉小组件</span>
-            </div>
+            <div class="time-item"><strong>09:00</strong><span>整理今天的技术笔记和灵感草稿。</span></div>
+            <div class="time-item"><strong>14:30</strong><span>完成一篇项目复盘或学习记录。</span></div>
+            <div class="time-item"><strong>21:00</strong><span>更新博客视觉和角色墙的卡片内容。</span></div>
           </div>
         </section>
-
         <section class="panel">
-          <div class="section-title">
-            <h2>收藏夹</h2>
+          <div class="section-head">
+            <div><h2 style="font-size: 22px;">收藏标签</h2></div>
           </div>
           <div class="chips">
             <span class="chip">UI 灵感</span>
             <span class="chip">阅读清单</span>
             <span class="chip">项目复盘</span>
-            <span class="chip">碎碎念</span>
+            <span class="chip">碎片笔记</span>
           </div>
         </section>
       </aside>
     </section>
   </main>
 
+  <div class="modal" id="articleModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card" role="document">
+      <div class="modal-hero">
+        <img id="modalCover" src="" alt="" />
+        <button class="modal-close" type="button" id="modalClose" aria-label="关闭文章详情">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="eyebrow" id="modalCategory">文章详情</div>
+        <h2 id="modalTitle" style="margin: 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.05;"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <p id="modalSummary"></p>
+        <p id="modalContent"></p>
+        <div class="tag-row" id="modalTags"></div>
+      </div>
+    </div>
+  </div>
+
   <footer class="shell">
-    星屑手记 · 个人博客界面 · Made with HTML & CSS
+    星屿手记 · 二次元个人博客界面 · 图片来自 Wikimedia Commons 并已本地化
   </footer>
+
+  <script>
+    const STORAGE_KEY = "starry_blog_posts_v1";
+
+    const seedPosts = [
+      {
+        id: "seed-1",
+        title: "如何把一个普通博客首页做得更像动漫房间",
+        summary: "从配色、卡片层次、动效、插画和留白五个维度重新调整页面。",
+        content: "这篇示例文章说明页面结构的设计思路：左边放介绍，右边放图集，中间再插一个发布器。这样用户先看到视觉，再看到内容，最后才是操作区，阅读顺序会更自然。",
+        category: "设计",
+        cover: "assets/anime-girl-portrait.jpg",
+        tags: ["设计", "界面", "二次元"],
+        date: "2026-05-28"
+      },
+      {
+        id: "seed-2",
+        title: "技术博客里的角色墙，为什么能增强停留感",
+        summary: "有明确视觉主角的页面，会更容易被记住。",
+        content: "当角色卡、收藏卡和文章卡混在一起时，页面会像一个完整空间，而不是一串干巴巴的列表。对个人博客来说，这种做法很适合增强记忆点。",
+        category: "UI",
+        cover: "assets/gray-cyan-hair-anime-girl.png",
+        tags: ["UI", "布局", "体验"],
+        date: "2026-05-22"
+      },
+      {
+        id: "seed-3",
+        title: "夜里写代码时，什么样的界面最耐看",
+        summary: "柔和的粉蓝过渡和轻微的浮动动画会更舒服。",
+        content: "这类页面不需要太多复杂交互，关键是层次清楚、间距舒服、颜色不过饱和。夜里长时间看屏幕时，这种界面不会那么刺眼。",
+        category: "生活",
+        cover: "assets/aesthetic-anime-girl.jpg",
+        tags: ["生活", "夜写", "舒适"],
+        date: "2026-05-16"
+      }
+    ];
+
+    const form = document.getElementById("publishForm");
+    const postList = document.getElementById("postList");
+    const postCount = document.getElementById("postCount");
+    const seedBtn = document.getElementById("seedBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const articleModal = document.getElementById("articleModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalCover = document.getElementById("modalCover");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMeta = document.getElementById("modalMeta");
+    const modalSummary = document.getElementById("modalSummary");
+    const modalContent = document.getElementById("modalContent");
+    const modalTags = document.getElementById("modalTags");
+
+    function loadSavedPosts() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function savePosts(posts) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+    }
+
+    function formatDate(value) {
+      if (!value) return "";
+      const d = new Date(value);
+      if (Number.isNaN(d.getTime())) return value;
+      return d.toLocaleDateString("zh-CN");
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function createPostCard(post) {
+      const article = document.createElement("article");
+      article.className = "post";
+      article.dataset.id = post.id;
+      article.tabIndex = 0;
+      article.setAttribute("role", "button");
+      article.setAttribute("aria-label", `打开文章：${post.title}`);
+      article.innerHTML = `
+        <div class="thumb">
+          <img src="${escapeHtml(post.cover)}" alt="${escapeHtml(post.title)}" />
+        </div>
+        <div>
+          <h3>${escapeHtml(post.title)}</h3>
+          <p>${escapeHtml(post.summary)}</p>
+          <p>${escapeHtml(post.content)}</p>
+          <span class="post-link-hint">点击查看详情</span>
+          <div class="meta">
+            <span class="tag">${escapeHtml(post.category || "随笔")}</span>
+            <span>${formatDate(post.date)}</span>
+            <span>${post.tags && post.tags.length ? post.tags.join(" · ") : "无标签"}</span>
+          </div>
+          <div class="post-actions">
+            <button class="mini-btn" data-action="delete" type="button">删除</button>
+          </div>
+        </div>
+      `;
+      const open = () => openPostModal(post);
+      article.addEventListener("click", (event) => {
+        if (event.target.closest('[data-action="delete"]')) return;
+        open();
+      });
+      article.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
+        }
+      });
+      return article;
+    }
+
+    function openPostModal(post) {
+      modalCover.src = post.cover;
+      modalCover.alt = post.title;
+      modalCategory.textContent = post.category || "文章详情";
+      modalTitle.textContent = post.title;
+      modalMeta.textContent = `${formatDate(post.date)} · ${post.tags && post.tags.length ? post.tags.join(" · ") : "无标签"}`;
+      modalSummary.textContent = post.summary;
+      modalContent.textContent = post.content;
+      modalTags.innerHTML = "";
+      (post.tags || []).forEach((tag) => {
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.textContent = tag;
+        modalTags.appendChild(span);
+      });
+      articleModal.classList.add("open");
+      articleModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closePostModal() {
+      articleModal.classList.remove("open");
+      articleModal.setAttribute("aria-hidden", "true");
+    }
+
+    function renderPosts() {
+      const stored = loadSavedPosts();
+      const posts = [...stored, ...seedPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+      postList.innerHTML = "";
+      posts.forEach((post) => postList.appendChild(createPostCard(post)));
+      postCount.textContent = String(posts.length);
+      postList.querySelectorAll('[data-action="delete"]').forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const post = btn.closest(".post");
+          const id = post && post.dataset.id;
+          if (!id || id.startsWith("seed-")) return;
+          const next = loadSavedPosts().filter((item) => item.id !== id);
+          savePosts(next);
+          renderPosts();
+        });
+      });
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const title = String(data.get("title") || "").trim();
+      const summary = String(data.get("summary") || "").trim();
+      const content = String(data.get("content") || "").trim();
+      const category = String(data.get("category") || "随笔").trim();
+      const cover = String(data.get("cover") || "assets/anime-girl-portrait.jpg").trim();
+      const tags = String(data.get("tags") || "")
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter(Boolean);
+
+      if (!title || !summary || !content) return;
+
+      const post = {
+        id: `post-${Date.now()}`,
+        title,
+        summary,
+        content,
+        category,
+        cover,
+        tags,
+        date: new Date().toISOString()
+      };
+
+      const saved = loadSavedPosts();
+      savePosts([post, ...saved]);
+      form.reset();
+      form.cover.value = "assets/anime-girl-portrait.jpg";
+      renderPosts();
+      document.getElementById("posts").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    seedBtn.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      renderPosts();
+    });
+
+    clearBtn.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      renderPosts();
+    });
+
+    modalClose.addEventListener("click", closePostModal);
+    articleModal.addEventListener("click", (event) => {
+      if (event.target === articleModal) closePostModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closePostModal();
+    });
+
+    renderPosts();
+  </script>
 </body>
 </html>
